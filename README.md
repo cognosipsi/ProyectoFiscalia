@@ -20,6 +20,7 @@ Clases:
   *peritajes
   *especialidad
   *estado
+  *procedimientos
 
 -Fiscales
   *nombre
