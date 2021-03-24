@@ -20,7 +20,7 @@ public class ProyectoFiscalia {
      prueba.setResultado("Se hace una denuncia por estafa");
      caso.setCodigo("123456");
      caso.setEstado("Abierto");
-     caso.setEspecialidad("Delitos economicos");
+     caso.setTipoCaso("Delitos economicos");
      caso.setRegion("VI");
      caso.setPeritajes(prueba);
      actual.add(caso);
