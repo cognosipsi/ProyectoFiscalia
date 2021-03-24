@@ -1,23 +1,47 @@
 import java.util.ArrayList;
 
-/**
- *
- * @author Marlene
- */
+
 public class ProyectoFiscalia {
 
-  /**
-   * @param args the command line arguments
-   */
   public static void main(String[] args) {
-    // TODO code application logic here
+     Procedimiento prueba;
+     ArrayList<String> part= new ArrayList<String>();
+     ArrayList<String> rol= new ArrayList<String>();
+     ArrayList<Causa> actual= new ArrayList<Causa>();
+     Causa caso;
+     Fiscal nuevo;
+     part.add("Juan Perez");
+     rol.add("Policia");
+     part.add("Roberto Gonzalez");
+     rol.add("Victima");
+     prueba.setNombreProc("Toma de denuncia");
+     prueba.setParticipantes(part);
+     prueba.setRoles(rol);
+     prueba.setResultado("Se hace una denuncia por estafa");
+     caso.setCodigo("123456");
+     caso.setEstado("Abierto");
+     caso.setEspecialidad("Delitos economicos");
+     caso.setRegion("VI");
+     caso.setPeritajes(prueba);
+     actual.add(caso);
+     nuevo.setNombre("Maria Castillo");
+     nuevo.setRut("12345768-9");
+     nuevo.setEspecialidad("Delitos economicos");
+     nuevo.setRegion("VI");
+     nuevo.setCausasActuales(actual);
+     System.out.println(nuevo);
   }
 
   public class Procedimiento {
-    private String nombre;
+    private String nombreProc;
     private ArrayList<String> participantes;
     private ArrayList<String> roles;
     private String resultado;
+
+    public Procedimiento(){
+      participantes= new ArrayList<String>();
+      roles=new ArrayList<String>();
+    }
 
     public String getNombre() {
       return nombre;
@@ -52,7 +76,6 @@ public class ProyectoFiscalia {
     }
 
   }
-
   public class Causa {
     private String codigo;
     private Fiscal encargado;
@@ -60,6 +83,10 @@ public class ProyectoFiscalia {
     private String estado;
     private String tipoCaso;
     private String region;
+
+    public Causa(){
+      peritajes= new ArrayList<Procedimiento>();
+    }
 
     public String getCodigo() {
       return codigo;
@@ -117,6 +144,10 @@ public class ProyectoFiscalia {
     private ArrayList<Causa> causasActuales;
     private String especialidad;
     private String region;
+
+    public Fiscal(){
+      causasActuales=new ArrayList<Causa>();
+    }
 
     public String getNombre() {
       return nombre;
