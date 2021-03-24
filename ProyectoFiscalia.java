@@ -43,12 +43,12 @@ public class ProyectoFiscalia {
       roles=new ArrayList<String>();
     }
 
-    public String getNombre() {
-      return nombre;
+    public String getNombreProc() {
+      return nombreProc;
     }
 
-    public void setNombre(String nombre) {
-      this.nombre = nombre;
+    public void setNombreProc(String nombreProc) {
+      this.nombreProc = nombreProc;
     }
 
     public ArrayList<String> getParticipantes() {
