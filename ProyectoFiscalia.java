@@ -1,31 +1,28 @@
-import java.util.ArrayList;
-
-
 public class ProyectoFiscalia {
 
   public static void main(String[] args) {
-     Procedimiento prueba;
-     ArrayList<Procedimiento> peritaje = new ArrayList<Procedimiento>();
-     ArrayList<String> part = new ArrayList<String>();
-     ArrayList<String> rol = new ArrayList<String>();
-     ArrayList<Causa> actual = new ArrayList<Causa>();
-     Causa caso;
-     Fiscal nuevo;
-     part.add("Juan Perez");
-     rol.add("Policia");
-     part.add("Roberto Gonzalez");
-     rol.add("Victima");
+     Procedimiento prueba= new Procedimiento();
+     Procedimiento peritajes[]= new Procedimiento[2];
+     Causa actual[]= new Causa[2];
+     Causa caso= new Causa();
+     Fiscal nuevo= new Fiscal();
+     String part[]= new String[2];
+     String rol[]= new String[2];
+     part[0]="Juan Perez";
+     rol[0]="Policia";
+     part[1]="Roberto Gonzalez";
+     rol[1]="Victima";
      prueba.setNombreProc("Toma de denuncia");
      prueba.setParticipantes(part);
      prueba.setRoles(rol);
      prueba.setResultado("Se hace una denuncia por estafa");
-     peritaje.add(prueba);
+     peritajes[0]=prueba;
+     caso.setPeritajes(peritajes);
      caso.setCodigo("123456");
      caso.setEstado("Abierto");
      caso.setTipoCaso("Delitos economicos");
-     caso.setdistrito(9);
-     caso.setPeritajes(peritaje);
-     actual.add(caso);
+     caso.setDistrito(9);
+     actual[0]=caso;
      nuevo.setNombre("Maria Castillo");
      nuevo.setRut("12345768-9");
      nuevo.setEspecialidad("Delitos economicos");
@@ -48,161 +45,181 @@ public class ProyectoFiscalia {
      System.out.println("                "+ part[1]+"/"+rol[1]);
      System.out.println("            Resultado:"+ prueba.getResultado());
   }
-
-  public class Procedimiento {
+  
+  public static class Procedimiento {
     private String nombreProc;
-    private ArrayList<String> participantes=new ArrayList<String>();
-    private ArrayList<String> roles=new ArrayList<String>();
+    private String participantes[];
+    private String roles[];
     private String resultado;
 
-    public String getNombreProc() {
-      return nombreProc;
+    public Procedimiento(){
+      nombreProc= new String() ;
+      participantes= new String[3];
+      roles= new String[3];
+      resultado= new String();
     }
 
-    public void setNombreProc(String nombreProc) {
-      this.nombreProc = nombreProc;
-    }
+        public String getNombreProc() {
+            return nombreProc;
+        }
 
-    public ArrayList<String> getParticipantes() {
-      return participantes;
-    }
+        public void setNombreProc(String nombreProc) {
+            this.nombreProc = nombreProc;
+        }
 
-    public void setParticipantes(ArrayList<String> participantes) {
-      this.participantes = participantes;
-    }
+        public String[] getParticipantes() {
+            return participantes;
+        }
 
-    public ArrayList<String> getRoles() {
-      return roles;
-    }
+        public void setParticipantes(String[] participantes) {
+            this.participantes = participantes;
+        }
 
-    public void setRoles(ArrayList<String> roles) {
-      this.roles = roles;
-    }
+        public String[] getRoles() {
+            return roles;
+        }
 
-    public String getResultado() {
-      return resultado;
-    }
+        public void setRoles(String[] roles) {
+            this.roles = roles;
+        }
 
-    public void setResultado(String resultado) {
-      this.resultado = resultado;
-    }
+        public String getResultado() {
+            return resultado;
+        }
+
+        public void setResultado(String resultado) {
+            this.resultado = resultado;
+        }
+
+
 
   }
-  public class Causa {
+  public static class Causa {
     private String codigo;
     private Fiscal encargado;
-    private ArrayList<Procedimiento> peritajes=new ArrayList<Procedimiento>();
+    private Procedimiento peritajes[];
     private String estado;
     private String tipoCaso;
     private int distrito;
-    private boolean asignada;
 
-
-    public String getCodigo() {
-      return codigo;
+    public Causa(){
+      codigo=new String();
+      encargado= new Fiscal();
+      peritajes= new Procedimiento[3];
+      estado= new String();
+      tipoCaso= new String();
+      distrito= 0;
     }
 
-    public void setCodigo(String codigo) {
-      this.codigo = codigo;
-    }
+        public String getCodigo() {
+            return codigo;
+        }
 
-    public Fiscal getEncargado() {
-      return encargado;
-    }
+        public void setCodigo(String codigo) {
+            this.codigo = codigo;
+        }
 
-    public void setEncargado(Fiscal encargado) {
-      this.encargado = encargado;
-    }
+        public Fiscal getEncargado() {
+            return encargado;
+        }
 
-    public ArrayList<Procedimiento> getPeritajes() {
-      return peritajes;
-    }
+        public void setEncargado(Fiscal encargado) {
+            this.encargado = encargado;
+        }
 
-    public void setPeritajes(ArrayList<Procedimiento> peritajes) {
-      this.peritajes = peritajes;
-    }
+        public Procedimiento[] getPeritajes() {
+            return peritajes;
+        }
 
-    public String getEstado() {
-      return estado;
-    }
+        public void setPeritajes(Procedimiento[] peritajes) {
+            this.peritajes = peritajes;
+        }
 
-    public void setEstado(String estado) {
-      this.estado = estado;
-    }
+        public String getEstado() {
+            return estado;
+        }
 
-    public String getTipoCaso() {
-      return tipoCaso;
-    }
+        public void setEstado(String estado) {
+            this.estado = estado;
+        }
 
-    public void setTipoCaso(String tipoCaso) {
-      this.tipoCaso = tipoCaso;
-    }
+        public String getTipoCaso() {
+            return tipoCaso;
+        }
 
-    public int getDistrito() {
-      return distrito;
-    }
+        public void setTipoCaso(String tipoCaso) {
+            this.tipoCaso = tipoCaso;
+        }
 
-    public void setDistrito(String distrito) {
-      this.distrito = distrito;
-    }
+        public int getDistrito() {
+            return distrito;
+        }
 
-    public boolean getAsignada(){
-      return asignada;
-    }
+        public void setDistrito(int distrito) {
+            this.distrito = distrito;
+        }
 
-    public void setAsignada(boolean asignada){
-      this.asignada=asignada;
-    }
 
+   
   }
 
-  public class Fiscal {
+  public static class Fiscal {
     private String nombre;
     private String rut;
-    private ArrayList<Causa> causasActuales=new ArrayList<Causa>();
+    private Causa causasActuales[];
     private String especialidad;
     private int distrito;
 
-
-    public String getNombre() {
-      return nombre;
+    public Fiscal(){
+      nombre= new String();
+      rut= new String();
+      causasActuales= new Causa[3];
+      especialidad = new String();
+      distrito=0; 
     }
 
-    public void setNombre(String nombre) {
-      this.nombre = nombre;
-    }
+        public String getNombre() {
+            return nombre;
+        }
 
-    public String getRut() {
-      return rut;
-    }
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
 
-    public void setRut(String rut) {
-      this.rut = rut;
-    }
+        public String getRut() {
+            return rut;
+        }
 
-    public ArrayList<Causa> getCausasActuales() {
-      return causasActuales;
-    }
+        public void setRut(String rut) {
+            this.rut = rut;
+        }
 
-    public void setCausasActuales(ArrayList<Causa> causasActuales) {
-      this.causasActuales = causasActuales;
-    }
+        public Causa[] getCausasActuales() {
+            return causasActuales;
+        }
 
-    public String getEspecialidad() {
-      return especialidad;
-    }
+        public void setCausasActuales(Causa[] causasActuales) {
+            this.causasActuales = causasActuales;
+        }
 
-    public void setEspecialidad(String especialidad) {
-      this.especialidad = especialidad;
-    }
+        public String getEspecialidad() {
+            return especialidad;
+        }
 
-    public String getDistrito() {
-      return distrito;
-    }
+        public void setEspecialidad(String especialidad) {
+            this.especialidad = especialidad;
+        }
 
-    public void setDistrito(String distrito) {
-      this.distrito = distrito;
-    }
+        public int getDistrito() {
+            return distrito;
+        }
+
+        public void setDistrito(int distrito) {
+            this.distrito = distrito;
+        }
+
+
+   
 
   }
 
