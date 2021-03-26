@@ -23,15 +23,30 @@ public class ProyectoFiscalia {
      caso.setCodigo("123456");
      caso.setEstado("Abierto");
      caso.setTipoCaso("Delitos economicos");
-     caso.setRegion("VI");
+     caso.setdistrito(9);
      caso.setPeritajes(peritaje);
      actual.add(caso);
      nuevo.setNombre("Maria Castillo");
      nuevo.setRut("12345768-9");
      nuevo.setEspecialidad("Delitos economicos");
-     nuevo.setRegion("VI");
+     nuevo.setDistrito(9);
      nuevo.setCausasActuales(actual);
-     System.out.println(nuevo);
+
+     System.out.println("Fiscales:");
+     System.out.println("Nombre:"+ nuevo.getNombre());
+     System.out.println("Rut:"+ nuevo.getRut());
+     System.out.println("Especialidad:"+ nuevo.getEspecialidad());
+     System.out.println("Distrito:"+ nuevo.getDistrito());
+     System.out.println("Causas:");
+     System.out.println("    Codigo:"+ caso.getCodigo());
+     System.out.println("    Estado:"+ caso.getEstado());
+     System.out.println("    Tipo de caso:"+ caso.getTipoCaso());
+     System.out.println("    Procedimientos:");
+     System.out.println("          1."+ prueba.getNombreProc());
+     System.out.println("            Participantes:");
+     System.out.println("                "+ part[0]+"/"+rol[0]);
+     System.out.println("                "+ part[1]+"/"+rol[1]);
+     System.out.println("            Resultado:"+ prueba.getResultado());
   }
 
   public class Procedimiento {
@@ -79,7 +94,7 @@ public class ProyectoFiscalia {
     private ArrayList<Procedimiento> peritajes=new ArrayList<Procedimiento>();
     private String estado;
     private String tipoCaso;
-    private String region;
+    private int distrito;
     private boolean asignada;
 
 
@@ -123,12 +138,12 @@ public class ProyectoFiscalia {
       this.tipoCaso = tipoCaso;
     }
 
-    public String getRegion() {
-      return region;
+    public int getDistrito() {
+      return distrito;
     }
 
-    public void setRegion(String region) {
-      this.region = region;
+    public void setDistrito(String distrito) {
+      this.distrito = distrito;
     }
 
     public boolean getAsignada(){
@@ -146,7 +161,7 @@ public class ProyectoFiscalia {
     private String rut;
     private ArrayList<Causa> causasActuales=new ArrayList<Causa>();
     private String especialidad;
-    private String region;
+    private int distrito;
 
 
     public String getNombre() {
@@ -181,12 +196,12 @@ public class ProyectoFiscalia {
       this.especialidad = especialidad;
     }
 
-    public String getRegion() {
-      return region;
+    public String getDistrito() {
+      return distrito;
     }
 
-    public void setRegion(String region) {
-      this.region = region;
+    public void setDistrito(String distrito) {
+      this.distrito = distrito;
     }
 
   }
